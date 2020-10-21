@@ -7,7 +7,7 @@ class MessageList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            messages: [],
+            messages: this.props.message,
         }
     }
     componentDidMount() {
@@ -17,6 +17,7 @@ class MessageList extends React.Component {
             this.setState({messages: jsonResponse.messages});
         });
     }
+
     renderMessages() {
         //console.log(this.state.messages[0]);
         return this.state.messages.map(message => {

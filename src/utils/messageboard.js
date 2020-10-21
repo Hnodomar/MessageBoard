@@ -14,6 +14,7 @@ messageBoard.getMessages = () => {
 };
 
 messageBoard.postMessage = (message) => {
+    //console.log(JSON.stringify({message: message}));
     if (!message)
         return new Promise(resolve => resolve(null));
     const url = `${baseUrl}`;
@@ -22,7 +23,7 @@ messageBoard.postMessage = (message) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({message: message})
+        body: JSON.stringify({messagetxt: message})
     };
     return fetch(url, options).then(response => {
         if (!response.ok)
