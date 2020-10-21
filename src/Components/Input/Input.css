@@ -1,0 +1,40 @@
+.InputContainer {
+    -webkit-appearance: none;
+    width: 400px;
+    margin: 50px auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.InputContainer h2 {
+    font-size: 2rem;
+    font-family: "Roboto";
+    color: whitesmoke;
+}
+
+.InputContainer textarea {
+    outline: none;
+    border-radius: 10px;
+    width: 300px;
+    height: 150px;
+    margin: 20px;
+}
+
+.InputContainer button {
+    border:none;
+    outline: none;
+    width: 80px;
+    height: 30px;
+    font-family: "Roboto";
+    border-radius: 10px;
+    font-size: 1.1rem;
+}
+
+.InputContainer button:hover {
+    background-color: lightgrey;
+}
+
+.InputContainer button:active {
+    background-color: grey;
+}
