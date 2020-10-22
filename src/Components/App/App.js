@@ -12,15 +12,23 @@ class App extends React.Component {
       messages: [],
     }
     this.handleClick = this.handleClick.bind(this);
+    this.getMessages = this.getMessages.bind(this);
   }
-
+  getMessages() {
+    messageBoard.getMessages().then(jsonResponse => {
+      //console.log(jsonResponse.messages);
+      this.setState({messages: jsonResponse.messages});
+    });
+  }
   handleClick() {
+    const currentMessages = this.state.messages;
     const inputField = document.getElementById("messageInput");
     if (inputField.value) {
         messageBoard.postMessage(inputField.value).then(response => {
-          this.state.messages.push(response);
+          currentMessages.push(response.messagetext);
+          this.setState({messages: currentMessages});
         });
-        console.log(this.state.messages);
+        //console.log(this.state.messages);
         inputField.value = "";
     }
   }
@@ -29,7 +37,7 @@ class App extends React.Component {
     return (
       <div className="AppContainer">
         <Header />
-        <MessageList message={this.state.messages} />
+        <MessageList message={this.state.messages} getmessages={this.getMessages} />
         <Input onclick={this.handleClick} />
       </div>
     );
